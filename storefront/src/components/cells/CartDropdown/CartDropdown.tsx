@@ -85,8 +85,8 @@ export const CartDropdown = () => {
         )}
       </LocalizedClientLink>
       <Dropdown show={open}>
-        <div className="lg:w-[460px] shadow-lg">
-          <h3 className="uppercase heading-md border-b p-4">Shopping cart</h3>
+        <div className="lg:w-[460px] shadow-sm">
+          <h3 className="heading-md border-b border-primary p-4">Shopping cart</h3>
           <div className="p-4">
             {Boolean(cartItemsCount) ? (
               <div>
@@ -119,7 +119,7 @@ export const CartDropdown = () => {
               </div>
             ) : (
               <div className="px-8">
-                <h4 className="heading-md uppercase text-center">
+                <h4 className="heading-md text-center">
                   Your shopping cart is empty
                 </h4>
                 <p className="text-lg text-center py-4">

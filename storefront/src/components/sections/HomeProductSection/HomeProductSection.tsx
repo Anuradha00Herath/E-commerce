@@ -14,7 +14,7 @@ export const HomeProductSection = async ({
 }) => {
   return (
     <section className="py-8 w-full">
-      <h2 className="mb-6 heading-lg font-bold tracking-tight uppercase">
+      <h2 className="mb-6 heading-lg text-primary tracking-tight">
         {heading}
       </h2>
       <HomeProductsCarousel

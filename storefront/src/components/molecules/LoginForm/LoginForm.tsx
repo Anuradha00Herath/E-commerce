@@ -92,10 +92,10 @@ const Form = () => {
           />
         )}
         <div
-          className="rounded-sm border p-4"
+          className="rounded-card border border-primary p-4"
           data-testid="login-form-container"
         >
-          <h1 className="heading-md mb-8 uppercase text-primary">Log in</h1>
+          <h1 className="heading-md mb-8 text-primary">Log in</h1>
           <form
             onSubmit={handleSubmit(submit)}
             data-testid="login-form"
@@ -130,14 +130,14 @@ const Form = () => {
 
             <Link
               href="/forgot-password"
-              className="label-md mt-4 block text-right uppercase text-action-on-secondary"
+              className="label-md mt-4 block text-right text-secondary hover:text-action transition-colors"
               data-testid="login-forgot-password-link"
             >
               Forgot your password?
             </Link>
 
             <Button
-              className="mt-8 w-full uppercase"
+              className="mt-8 w-full"
               disabled={isSubmitting}
               data-testid="login-submit-button"
             >
@@ -147,7 +147,7 @@ const Form = () => {
         </div>
 
         <div className="rounded-sm border p-4">
-          <h2 className="heading-md mb-4 uppercase text-primary">
+          <h2 className="heading-md mb-4 text-primary">
             Don&apos;t have an account yet?
           </h2>
           <Link
@@ -156,7 +156,7 @@ const Form = () => {
           >
             <Button
               variant="tonal"
-              className="mt-8 flex w-full justify-center uppercase"
+              className="mt-8 flex w-full justify-center"
             >
               Create account
             </Button>

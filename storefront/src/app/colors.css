@@ -1,31 +1,37 @@
 :root {
     /* Neutral colors are the foundation of the color system. Almost everything in UI design — text, fields, backgrounds, dividers — are usually gray. */
+    /* Warm-neutral scale (Tailwind slate-adjacent) — matches the storefront's
+       white/near-black-on-white restrained palette. Keep 0/25/50/500/1000 in
+       sync with the design spec: surface #FFFFFF, section bg #F9FAFB,
+       border #E5E7EB, text-secondary #6B7280, text-primary #111827. */
     --neutral-0: 255, 255, 255;
-    --neutral-25: 247, 247, 247;
-    --neutral-50: 238, 238, 238;
+    --neutral-25: 249, 250, 251;
+    --neutral-50: 229, 231, 235;
     --neutral-100: 226, 226, 226;
     --neutral-200: 198, 198, 198;
     --neutral-300: 163, 163, 163;
     --neutral-400: 115, 115, 115;
-    --neutral-500: 82, 82, 82;
+    --neutral-500: 107, 114, 128;
     --neutral-600: 64, 64, 64;
     --neutral-700: 38, 38, 38;
     --neutral-800: 27, 27, 27;
     --neutral-900: 22, 22, 22;
-    --neutral-1000: 9, 9, 9;
+    --neutral-1000: 17, 24, 39;
 
     /* Brand colors are used across all interactive elements such as buttons, links, inputs, etc. This color can define the overall feel and can elicit emotion. */
-    --brand-25: 247, 247, 247;
-    --brand-50: 238, 238, 238;
-    --brand-100: 226, 226, 226;
-    --brand-200: 198, 198, 198;
-    --brand-300: 163, 163, 163;
-    --brand-400: 115, 115, 115;
-    --brand-500: 82, 82, 82;
-    --brand-600: 64, 64, 64;
-    --brand-700: 27, 27, 27;
-    --brand-800: 22, 22, 22;
-    --brand-900: 9, 9, 9;
+    /* Restrained green accent — used for primary actions, links, and
+       active/selected states only. Never for body text or large fills. */
+    --brand-25: 240, 253, 244;
+    --brand-50: 220, 252, 231;
+    --brand-100: 187, 247, 208;
+    --brand-200: 134, 239, 172;
+    --brand-300: 74, 222, 128;
+    --brand-400: 34, 197, 94;
+    --brand-500: 22, 163, 74;
+    --brand-600: 21, 128, 61;
+    --brand-700: 22, 101, 52;
+    --brand-800: 21, 128, 61;
+    --brand-900: 22, 163, 74;
     
     /* Red colors are used across error states and in "destructive" actions. */
     --red-25: 254, 243, 242;
@@ -92,6 +98,11 @@
     --bg-component-secondary-hover: var(--neutral-50);
     --bg-component-secondary-pressed: var(--neutral-100);
 
+    /* Light green tint — badges, highlights, hover backgrounds. Never for
+       body text or large fills (see --bg-action-primary for that). */
+    --bg-tint: var(--brand-25);
+    --border-tint: var(--brand-50);
+
     --bg-action-primary: var(--brand-900);
     --bg-action-primary-hover: var(--brand-800);
     --bg-action-primary-pressed: var(--brand-700);
@@ -132,7 +143,9 @@
     --content-action-primary: var(--brand-900);
     --content-action-primary-hover: var(--brand-800);
     --content-action-primary-pressed: var(--brand-700);
-    --content-action-on-primary: var(--brand-25);
+    /* Pure white label on solid-green buttons — not a green-tinted white,
+       for contrast per the design spec. */
+    --content-action-on-primary: var(--neutral-0);
     --content-action-on-secondary: var(--neutral-1000);
     --content-action-on-tertiary: var(--neutral-0);
 
@@ -151,6 +164,9 @@
     --content-disabled: var(--neutral-400);
 
     --border-primary: var(--neutral-50);
+    /* A slight darkening from --border-primary, for subtle hover states
+       (e.g. product cards) — not the much darker --border-secondary. */
+    --border-hover: 209, 213, 219;
     --border-secondary: var(--neutral-800);
     --border-action: var(--brand-900);
     --border-negative-primary: var(--red-700);

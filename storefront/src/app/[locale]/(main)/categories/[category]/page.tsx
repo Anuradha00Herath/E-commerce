@@ -154,7 +154,7 @@ async function Category({
         <Breadcrumbs items={breadcrumbsItems} />
       </div>
 
-      <h1 className="heading-xl uppercase">{category.name}</h1>
+      <h1 className="heading-xl text-primary">{category.name}</h1>
 
       <Suspense fallback={<div data-testid="category-page-loading"><ProductListingSkeleton /></div>}>
         {bot ? (

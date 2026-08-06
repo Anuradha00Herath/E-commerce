@@ -76,8 +76,8 @@ const Form = () => {
 
   return (
     <main className="container" data-testid="register-page">
-      <Container className="border max-w-xl mx-auto mt-8 p-4" data-testid="register-form-container">
-        <h1 className="heading-md text-primary uppercase mb-8">
+      <Container className="border rounded-card max-w-xl mx-auto mt-8 p-4" data-testid="register-form-container">
+        <h1 className="heading-md text-primary mb-8">
           Create account
         </h1>
         <form onSubmit={handleSubmit(submit)} data-testid="register-form">
@@ -134,7 +134,7 @@ const Form = () => {
           </div>
 
           <Button
-            className="w-full flex justify-center mt-8 uppercase"
+            className="w-full flex justify-center mt-8"
             disabled={isSubmitting}
             loading={isSubmitting}
             data-testid="register-submit-button"
@@ -143,14 +143,14 @@ const Form = () => {
           </Button>
         </form>
       </Container>
-      <Container className="border max-w-xl mx-auto mt-8 p-4">
-        <h2 className="heading-md text-primary uppercase mb-8">
+      <Container className="border rounded-card max-w-xl mx-auto mt-8 p-4">
+        <h2 className="heading-md text-primary mb-8">
           Already have an account?
         </h2>
         <Link href="/login" data-testid="register-login-link">
           <Button
             variant="tonal"
-            className="w-full flex justify-center mt-8 uppercase"
+            className="w-full flex justify-center mt-8"
           >
             Log in
           </Button>

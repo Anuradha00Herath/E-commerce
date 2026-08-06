@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Discover this season's most sophisticated accessories that blend timeless elegance with modern design.",
     image: '/images/blog/post-1.jpg',
-    category: 'ACCESSORIES',
+    category: 'Accessories',
     href: '#',
   },
   {
@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       'From bold colors to nostalgic silhouettes, explore the must-have looks defining this season’s fashion narrative.',
     image: '/images/blog/post-2.jpg',
-    category: 'STYLE GUIDE',
+    category: 'Style guide',
     href: '#',
   },
   {
@@ -26,17 +26,17 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       'Explore the latest minimalist outerwear pieces that combine functionality with clean aesthetics.',
     image: '/images/blog/post-3.jpg',
-    category: 'TRENDS',
+    category: 'Trends',
     href: '#',
   },
 ];
 
 export function BlogSection() {
   return (
-    <section className='bg-tertiary container'>
+    <section className='bg-secondary container'>
       <div className='flex items-center justify-between mb-12'>
-        <h2 className='heading-lg text-tertiary'>
-          STAY UP TO DATE
+        <h2 className='heading-lg text-primary'>
+          Stay up to date
         </h2>
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-3'>

@@ -6,22 +6,22 @@ import { Style } from "@/types/styles"
 export const styles: Style[] = [
   {
     id: 1,
-    name: "LUXURY",
+    name: "Luxury",
     href: "/collections/luxury",
   },
   {
     id: 2,
-    name: "VINTAGE",
+    name: "Vintage",
     href: "/collections/vintage",
   },
   {
     id: 3,
-    name: "CASUAL",
+    name: "Casual",
     href: "/collections/casual",
   },
   {
     id: 4,
-    name: "STREETWEAR",
+    name: "Streetwear",
     href: "/collections/streetwear",
   },
   {
@@ -34,9 +34,9 @@ export const styles: Style[] = [
 export function ShopByStyleSection() {
   return (
     <section className="bg-primary container">
-      <h2 className="heading-lg text-primary mb-12">SHOP BY STYLE</h2>
+      <h2 className="heading-lg text-primary mb-12">Shop by style</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div className="py-[52px] px-[58px] h-full border rounded-sm">
+        <div className="py-[52px] px-[58px] h-full border border-primary rounded-card">
           {styles.map((style) => (
             <LocalizedClientLink
               key={style.id}
@@ -56,7 +56,7 @@ export function ShopByStyleSection() {
             alt="Models showcasing luxury fashion styles"
             width={700}
             height={600}
-            className="object-cover rounded-sm w-full h-auto"
+            className="object-cover rounded-card w-full h-auto"
           />
         </div>
       </div>

@@ -144,7 +144,7 @@ export const ProductDetailsHeader = ({
   }
 
   return (
-    <div className="border rounded-sm p-5" data-testid="product-details-header">
+    <div className="border border-primary rounded-card p-5" data-testid="product-details-header">
       <div className="flex justify-between">
         <div>
           <h1 className="heading-lg text-primary" data-testid="product-title">{product.title}</h1>
@@ -172,21 +172,21 @@ export const ProductDetailsHeader = ({
         onClick={handleAddToCart}
         disabled={isAddToCartDisabled}
         loading={isAddingItem}
-        className="w-full uppercase mb-4 py-3 flex justify-center"
+        className="w-full mb-4 py-3 flex justify-center"
         size="large"
         data-testid="product-add-to-cart-button"
       >
         {!hasOffer
-          ? "NOT AVAILABLE"
+          ? "Not available"
           : offerStock
-          ? "ADD TO CART"
-          : "OUT OF STOCK"}
+          ? "Add to cart"
+          : "Out of stock"}
       </Button>
       {otherOffersCount > 0 && (
         <Button
           variant="tonal"
           onClick={() => setIsCompareOpen(true)}
-          className="w-full uppercase mb-4"
+          className="w-full mb-4"
           data-testid="compare-offers-button"
         >
           {`Compare other ${otherOffersCount} offers`}
@@ -207,7 +207,7 @@ export const ProductDetailsHeader = ({
         <Chat
           user={user}
           seller={seller}
-          buttonClassNames="w-full uppercase"
+          buttonClassNames="w-full"
           product={product}
         />
       )}

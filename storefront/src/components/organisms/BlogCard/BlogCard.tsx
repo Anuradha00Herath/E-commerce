@@ -15,7 +15,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
     <LocalizedClientLink
       href={post.href}
       className={cn(
-        "group block border border-secondary p-1 rounded-sm relative",
+        "group block border border-primary p-1 rounded-card relative",
         index > 0 && "hidden lg:block"
       )}
     >
@@ -33,7 +33,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
       <div className="p-4 bg-tertiary text-tertiary absolute bottom-0 left-1 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-b-xs w-[calc(100%-8px)]">
         <h3 className="heading-sm">{post.title}</h3>
         <p className="text-md line-clamp-2">{post.excerpt}</p>
-        <div className="flex items-center gap-4 uppercase label-md mt-[26px]">
+        <div className="flex items-center gap-4 label-md mt-[26px]">
           Read more{" "}
           <ArrowRightIcon
             size={20}

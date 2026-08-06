@@ -40,7 +40,7 @@ export const UserDropdown = ({
         {isLoggedIn ? (
           <div className="p-1">
             <div className="lg:w-[200px]">
-              <h3 className="uppercase heading-xs border-b p-4">
+              <h3 className="heading-xs border-b border-primary p-4">
                 Your account
               </h3>
             </div>

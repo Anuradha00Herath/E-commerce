@@ -167,7 +167,7 @@ export default async function Home({
         <HomeProductSection heading="trending listings" locale={locale} home />
       </div>
       <div className="px-4 lg:px-8 w-full">
-        <HomeCategories heading="SHOP BY CATEGORY" />
+        <HomeCategories heading="Shop by category" />
       </div>
       <BannerSection />
       <ShopByStyleSection />

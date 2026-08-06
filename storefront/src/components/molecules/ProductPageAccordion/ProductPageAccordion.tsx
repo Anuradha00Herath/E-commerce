@@ -36,7 +36,7 @@ export const ProductPageAccordion = ({
         onClick={openHandler}
         className='flex justify-between items-center cursor-pointer px-2 py-4'
       >
-        <h4 className='label-lg uppercase'>{heading}</h4>
+        <h4 className='label-lg text-primary'>{heading}</h4>
         <div className='relative'>
           <MinusThinIcon
             className={cn(

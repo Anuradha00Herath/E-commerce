@@ -15,6 +15,7 @@ export default {
         secondary: "rgba(var(--bg-secondary))",
         tertiary: "rgba(var(--bg-tertiary))",
         disabled: "rgba(var(--bg-disabled))",
+        tint: "rgba(var(--bg-tint))",
         component: {
           DEFAULT: "rgba(var(--bg-component-primary))",
           hover: "rgba(var(--bg-component-primary-hover))",
@@ -109,6 +110,8 @@ export default {
       borderColor: {
         DEFAULT: "rgba(var(--border-primary))",
         primary: "rgba(var(--border-primary))",
+        hover: "rgba(var(--border-hover))",
+        tint: "rgba(var(--border-tint))",
         secondary: "rgba(var(--border-secondary))",
         action: "rgba(var(--border-action))",
         negative: {
@@ -128,6 +131,8 @@ export default {
       borderRadius: {
         xs: "4px",
         sm: "8px",
+        // Cards specifically (per design spec: 12px cards, 8px buttons/inputs).
+        card: "12px",
         md: "16px",
         full: "1000px",
       },

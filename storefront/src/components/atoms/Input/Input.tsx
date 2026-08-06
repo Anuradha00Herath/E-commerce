@@ -75,7 +75,7 @@ export function Input({
 
         <input
           className={cn(
-            "w-full px-[16px] py-[12px] border rounded-sm bg-component-secondary focus:border-primary focus:outline-none focus:ring-0",
+            "w-full px-[16px] py-[12px] border border-primary rounded-sm bg-primary focus:border-action focus:outline-none focus:ring-0 transition-colors duration-150",
             error && "border-negative focus:border-negative",
             props.disabled && "bg-disabled cursor-not-allowed",
             paddingY,

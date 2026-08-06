@@ -9,7 +9,7 @@ export function CategoryCard({
   return (
     <LocalizedClientLink
       href={`/categories/${category.handle}`}
-      className="relative flex flex-col items-center border rounded-sm bg-component transition-all hover:rounded-full w-[233px] aspect-square"
+      className="relative flex flex-col items-center border border-primary rounded-card bg-primary transition-colors hover:border-hover w-[233px] aspect-square"
     >
       <div className="flex relative aspect-square overflow-hidden w-[200px]">
         <Image

@@ -18,8 +18,8 @@ export const HeadingCategories = ({
           key={id}
           href={`/categories/${handle}`}
           className={cn(
-            "label-md uppercase px-2 mb-4 md:mb-0",
-            handle === category && "border-b border-primary"
+            "label-md px-2 mb-4 md:mb-0 text-primary hover:text-action transition-colors border-b border-transparent",
+            handle === category && "border-action text-action"
           )}
         >
           {name}

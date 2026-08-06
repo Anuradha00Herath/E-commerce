@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "@/components/atoms"
 import { HttpTypes } from "@medusajs/types"
 import { cn } from "@/lib/utils"
 import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
@@ -26,20 +25,20 @@ export const ProductCard = ({
   return (
     <div
       className={cn(
-        "relative group border rounded-sm flex flex-col justify-between p-1 w-full lg:w-[calc(25%-1rem)] min-w-[250px]",
+        "relative group border border-primary rounded-card overflow-hidden flex flex-col justify-between w-full lg:w-[calc(25%-1rem)] min-w-[250px] bg-primary transition-colors duration-200 hover:border-hover",
         className
       )}
       data-testid="product-card"
       data-product-handle={product.handle}
     >
-      <div className="relative w-full h-full bg-primary aspect-square" data-testid="product-card-image-container">
+      <div className="relative w-full bg-secondary aspect-square" data-testid="product-card-image-container">
         <LocalizedClientLink
           href={`/products/${product.handle}`}
           aria-label={`View ${productName}`}
           title={`View ${productName}`}
           data-testid="product-card-link"
         >
-          <div className="overflow-hidden rounded-sm w-full h-full flex justify-center align-center ">
+          <div className="w-full h-full flex justify-center items-center">
             {product.thumbnail ? (
               <Image
                 priority
@@ -49,7 +48,7 @@ export const ProductCard = ({
                 width={100}
                 height={100}
                 sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                className="object-contain aspect-square w-full object-center h-full lg:group-hover:-mt-14 transition-all duration-300 rounded-xs"
+                className="object-contain aspect-square w-full object-center h-full transition-transform duration-200 group-hover:scale-[1.02]"
                 data-testid="product-card-image"
               />
             ) : (
@@ -66,29 +65,20 @@ export const ProductCard = ({
             )}
           </div>
         </LocalizedClientLink>
-        <LocalizedClientLink
-          href={`/products/${product.handle}`}
-          aria-label={`See more about ${productName}`}
-          title={`See more about ${productName}`}
-        >
-          <Button className="absolute rounded-sm bg-action text-action-on-primary h-auto lg:h-[48px] lg:group-hover:block hidden w-full uppercase bottom-1 z-10" data-testid="product-card-see-more-button">
-            See More
-          </Button>
-        </LocalizedClientLink>
       </div>
       <LocalizedClientLink
         href={`/products/${product.handle}`}
         aria-label={`Go to ${productName} page`}
         title={`Go to ${productName} page`}
       >
-        <div className="flex justify-between p-4" data-testid="product-card-info">
+        <div className="flex justify-between p-4 border-t border-primary" data-testid="product-card-info">
           <div className="w-full">
-            <h3 className="heading-sm truncate" data-testid="product-card-title">{product.title}</h3>
+            <h3 className="heading-sm text-primary truncate" data-testid="product-card-title">{product.title}</h3>
             <div className="flex items-center gap-2 mt-2" data-testid="product-card-price">
-              <p className="font-medium" data-testid="product-card-current-price">{cheapestPrice?.calculated_price}</p>
+              <p className="font-medium text-primary" data-testid="product-card-current-price">{cheapestPrice?.calculated_price}</p>
               {cheapestPrice?.calculated_price !==
                 cheapestPrice?.original_price && (
-                <p className="text-sm text-gray-500 line-through" data-testid="product-card-original-price">
+                <p className="text-sm text-secondary line-through" data-testid="product-card-original-price">
                   {cheapestPrice?.original_price}
                 </p>
               )}

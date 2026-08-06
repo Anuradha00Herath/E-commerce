@@ -7,7 +7,7 @@ export const SellNowButton = () => {
     <Link
       href={process.env.NEXT_PUBLIC_VENDOR_URL || "https://vendor.mercurjs.com"}
     >
-      <Button className="group uppercase !font-bold pl-12 gap-1 flex items-center">
+      <Button className="group pl-12 gap-1 flex items-center">
         Sell now
         <ArrowRightIcon
           color="white"

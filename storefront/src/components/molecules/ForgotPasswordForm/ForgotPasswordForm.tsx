@@ -56,11 +56,11 @@ const Form = () => {
 
   return (
     <div
-      className="mx-auto mt-6 w-full max-w-xl space-y-4 rounded-sm border p-4"
+      className="mx-auto mt-6 w-full max-w-xl space-y-4 rounded-card border border-primary p-4"
       data-testid="forgot-password-form-container"
     >
-      <h1 className="heading-md my-0 mb-2 uppercase text-primary">Forgot your password?</h1>
-      <p className="text-md">
+      <h1 className="heading-md my-0 mb-2 text-primary">Forgot your password?</h1>
+      <p className="text-md text-secondary">
         Enter the email you used to sign up and we&#39;ll send you a password reset email. email.
       </p>
       <form
@@ -79,11 +79,11 @@ const Form = () => {
 
         <div className="mt-8 space-y-4">
           <Button
-            className="w-full uppercase"
+            className="w-full"
             disabled={isSubmitting}
             data-testid="forgot-password-submit-button"
           >
-            Reset Password
+            Reset password
           </Button>
 
           <Link
@@ -93,7 +93,7 @@ const Form = () => {
           >
             <Button
               variant="tonal"
-              className="flex w-full justify-center uppercase"
+              className="flex w-full justify-center"
             >
               Back to log in
             </Button>

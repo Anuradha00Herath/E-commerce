@@ -26,21 +26,21 @@ export const Hero = ({ image, heading, paragraph, buttons }: HeroProps) => {
         sizes="(min-width: 1024px) 50vw, 100vw"
       />
       <div className="w-full lg:order-2">
-        <div className="border rounded-sm w-full px-6 flex items-end h-[calc(100%-144px)]">
+        <div className="border border-primary rounded-card w-full px-6 flex items-end h-[calc(100%-144px)]">
           <div>
-            <h2 className="font-bold mb-6 uppercase display-md max-w-[652px] text-4xl md:text-5xl leading-tight">
+            <h2 className="font-medium mb-6 display-md max-w-[652px] text-4xl md:text-5xl leading-tight text-primary">
               {heading}
             </h2>
-            <p className="text-lg mb-8">{paragraph}</p>
+            <p className="text-lg mb-8 text-secondary">{paragraph}</p>
           </div>
         </div>
         {buttons.length && (
-          <div className="h-[72px] lg:h-[144px] flex font-bold uppercase">
+          <div className="h-[72px] lg:h-[144px] flex font-medium">
             {buttons.map(({ label, path }) => (
               <Link
                 key={path}
                 href={path}
-                className="group flex border rounded-sm h-full w-1/2 bg-content hover:bg-action hover:text-tertiary transition-all duration-300 p-6 justify-between items-end"
+                className="group flex border border-primary rounded-card h-full w-1/2 bg-primary hover:bg-action hover:border-action hover:text-tertiary transition-all duration-300 p-6 justify-between items-end"
                 aria-label={label}
                 title={label}
               >
