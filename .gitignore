@@ -43,3 +43,6 @@ Thumbs.db
 *.pid
 *.seed
 *.pid.lock
+
+# Claude Code runtime state
+.claude/
