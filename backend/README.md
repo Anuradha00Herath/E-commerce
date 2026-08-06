@@ -1,158 +1,147 @@
-<p align="center">
-  <a href="https://www.medusajs.com">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/59018053/229103275-b5e482bb-4601-46e6-8142-244f531cebdb.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    <img alt="Medusa logo" src="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    </picture>
-  </a>
-</p>
-<h1 align="center">
-  Medusa DTC Starter
-</h1>
+# Mercur Basic Template
 
-<h4 align="center">
-  <a href="https://docs.medusajs.com">Documentation</a> |
-  <a href="https://www.medusajs.com">Website</a>
-</h4>
+This template comes configured with the bare minimum to get started building your marketplace with Mercur.
 
-<p align="center">
-  Building blocks for digital commerce
-</p>
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/develop/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Medusa is released under the MIT license." />
-  </a>
-  <a href="https://circleci.com/gh/medusajs/medusa">
-    <img src="https://circleci.com/gh/medusajs/medusa.svg?style=shield" alt="Current CircleCI build status." />
-  </a>
-  <a href="https://github.com/medusajs/medusa/blob/develop/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-    <a href="https://www.producthunt.com/posts/medusa"><img src="https://img.shields.io/badge/Product%20Hunt-%231%20Product%20of%20the%20Day-%23DA552E" alt="Product Hunt"></a>
-  <a href="https://discord.gg/xpCwq3Kfn8">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=medusajs">
-    <img src="https://img.shields.io/twitter/follow/medusajs.svg?label=Follow%20@medusajs" alt="Follow @medusajs" />
-  </a>
-</p>
+## Quick Start
 
-# Medusa DTC Starter
+To spin up this template locally, follow these steps:
 
-A production-ready monorepo starter for direct-to-consumer ecommerce stores powered by Medusa and Next.js. Includes a fully featured storefront with product browsing, cart, checkout, customer accounts, and order management.
+### Clone
 
-## Features
+If you've already cloned this repo, skip to [Development](#development).
 
-- All of [Medusa's commerce features](https://docs.medusajs.com/resources/commerce-modules)
-- Multi-region support with automatic country detection
-- Product catalog with variant selection
-- Cart with promotion codes
-- Multi-step checkout with shipping and payment
-- Customer accounts with order history and address management
-- Order transfer between accounts
+### Development
 
-## Getting Started
+1. First [clone the repo](#clone) if you have not done so already
 
-### Deploy with Medusa Cloud
-
-The fastest way to get started is deploying with [Medusa Cloud](https://cloud.medusajs.com):
-
-1. [Create a Medusa Cloud account](https://cloud.medusajs.com)
-2. Deploy this starter directly from your dashboard
-
-### Local Installation
-
-> **Prerequisites:
->
-> - [Node.js](https://nodejs.org/) v20+
-> - [PostgreSQL](https://www.postgresql.org/) v15+
-> - [pnpm](https://pnpm.io/) v10+
-
-1. Clone the repository and install dependencies:
+2. Copy the example environment variables:
 
 ```bash
-git clone https://github.com/medusajs/dtc-starter.git
-cd dtc-starter
-pnpm install
+cd my-project
+cp packages/api/.env.template packages/api/.env
 ```
 
-2. Set up environment variables for the backend:
+3. Update the `.env` file with your database connection string and other required variables:
+
+```
+DATABASE_URL=postgres://user:password@localhost:5432/mercur
+REDIS_URL=redis://localhost:6379
+JWT_SECRET=your-super-secret-jwt-key
+COOKIE_SECRET=your-super-secret-cookie-key
+```
+
+4. Install dependencies and start the dev server:
 
 ```bash
-cp apps/backend/.env.template apps/backend/.env
+bun install
+bun dev
 ```
 
-3. Set the database URL in `apps/backend.env`:
+5. Open `http://localhost:9000` to access the Medusa backend
+6. Open `http://localhost:7000` to access the admin dashboard
+6. Open `http://localhost:7001` to access the vendor dashboard
+
+That's it! Follow the on-screen instructions to login and create your first admin user.
+
+## What's Inside
+
+This monorepo includes the following packages and apps:
+
+### Apps and Packages
+
+- `packages/api` - The Medusa backend with all marketplace functionality
+- `apps/admin` - Admin dashboard customizations
+- `apps/vendor` - Vendor portal customizations
+
+### Project Structure
+
+```
+├── apps/
+│   ├── admin/          # Admin dashboard extensions
+│   └── vendor/         # Vendor portal extensions
+├── packages/
+│   └── api/            # Medusa backend
+│       ├── src/
+│       │   ├── api/         # Custom API routes
+│       │   ├── jobs/        # Background jobs
+│       │   ├── links/       # Module links
+│       │   ├── modules/     # Custom modules
+│       │   ├── scripts/     # CLI scripts
+│       │   ├── subscribers/ # Event subscribers
+│       │   └── workflows/   # Business workflows
+│       └── medusa-config.ts
+├── blocks.json         # Mercur blocks configuration
+├── package.json
+└── turbo.json
+```
+
+### Utilities
+
+This project has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [Turborepo](https://turborepo.dev/) for monorepo management
+- [Prettier](https://prettier.io) for code formatting
+
+## How It Works
+
+The Mercur basic template is built on top of [Medusa](https://medusajs.com) and is pre-configured for marketplace functionality.
+
+### Modules
+
+Custom modules allow you to extend the core functionality. See the [Modules](https://docs.medusajs.com/learn/fundamentals/modules) docs for details.
+
+### Workflows
+
+Workflows define multi-step business processes. See the [Workflows](https://docs.medusajs.com/learn/fundamentals/workflows) docs for details.
+
+### API Routes
+
+Custom API routes expose HTTP endpoints. See the [API Routes](https://docs.medusajs.com/learn/fundamentals/api-routes) docs for details.
+
+### Links
+
+Links define relationships between modules. See the [Links](https://docs.medusajs.com/learn/fundamentals/links) docs for details.
+
+## Adding Blocks
+
+You can extend your project with pre-built blocks using the Mercur CLI:
 
 ```bash
-# Replace with actual database URL, make sure the database exists.
-DATABASE_URL=postgres://postgres:@localhost:5432/medusa-dtc-starter
+bunx @mercurjs/cli add block-name
 ```
 
-4. Run migrations:
+Configure your block sources in `blocks.json`:
+
+```json
+{
+  "aliases": {
+    "workflows": "packages/api/src/workflows",
+    "links": "packages/api/src/links",
+    "api": "packages/api/src/api",
+    "modules": "packages/api/src/modules"
+  },
+  "registries": {}
+}
+```
+
+## Build
+
+To build all apps and packages:
 
 ```bash
-cd apps/backend
-pnpm medusa db:migrate
+bun run build
 ```
 
-5. Add admin user:
+## AI agents
 
-```bash
-cd apps/backend
-pnpm medusa user -e admin@test.com -p supersecret
-```
+This project bundles its documentation as a dependency (`@mercurjs/docs`), so AI agents can read it offline and version-matched to your installed packages. Point your agent at:
 
-6. Start Medusa backend:
+- `node_modules/@mercurjs/docs/llms.txt` — an index of every page
+- `node_modules/@mercurjs/docs/content/**/*.mdx` — the full pages
 
-```bash
-cd apps/backend
-pnpm dev
-```
+`CLAUDE.md` and `AGENTS.md` instruct agents to read these before making changes. The same docs are online at [docs.mercurjs.com](https://docs.mercurjs.com).
 
-7. Open the admin dashboard at `localhost:9000/app` and log in. Retrieve your publishable API key at Settings > Publishable API key.
+## Questions
 
-8. Set up environment variables for the storefront:
-
-```bash
-cp apps/storefront/.env.template apps/storefront/.env.local
-```
-
-9. Update `apps/storefront/.env.local` with your Medusa publishable API key:
-
-```bash
-NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_6c3...
-```
-
-10.  Start storefront:
-
-```bash
-cd apps/storefront
-pnpm dev
-```
-
-The storefront runs on `http://localhost:8000`.
-
-You can slo run the following command from the root to start both backend and storefront:
-
-```bash
-pnpm dev
-```
-
-## Configuration
-
-The storefront is configured via environment variables in `apps/storefront/.env.local`:
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY` | Publishable API key from your Medusa backend | — |
-| `NEXT_PUBLIC_MEDUSA_BACKEND_URL` | URL of your Medusa backend | `http://localhost:9000` |
-| `NEXT_PUBLIC_DEFAULT_REGION` | Default region country code | `dk` |
-| `NEXT_PUBLIC_BASE_URL` | Base URL of the storefront | `https://localhost:8000` |
-| `NEXT_PUBLIC_STRIPE_KEY` | Stripe publishable key (optional) | — |
-
-## Resources
-
-- [Medusa Documentation](https://docs.medusajs.com)
-- [Medusa Cloud](https://cloud.medusajs.com)
+If you have any issues or questions start a [GitHub discussion](https://github.com/mercurjs/mercur/discussions).

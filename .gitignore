@@ -46,3 +46,6 @@ Thumbs.db
 
 # Claude Code runtime state
 .claude/
+
+# Local backup of the pre-Mercur plain-Medusa scaffold (not part of the project)
+backend-medusa-plain-archive/
