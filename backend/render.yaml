@@ -1,0 +1,21 @@
+# Render Blueprint for the backend web service. This only declares the
+# service itself (Docker-based, matching Dockerfile in this directory) —
+# create the managed PostgreSQL and Redis instances separately in the Render
+# dashboard first (see DEPLOYMENT.md), then paste their connection strings in
+# as environment variables below (Render lets you fill these in per-service
+# after the blueprint is applied; nothing secret is stored in this file).
+services:
+  - type: web
+    name: marketplace-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # All other variables (DATABASE_URL, REDIS_URL, JWT_SECRET, CORS
+      # origins, MERCUR_BACKEND_URL, etc.) are set manually in the Render
+      # dashboard — see DEPLOYMENT.md for the full checklist. Deliberately
+      # not listed here so no real values ever need to touch this file.

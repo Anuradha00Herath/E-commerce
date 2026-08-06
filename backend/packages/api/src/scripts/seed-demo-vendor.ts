@@ -118,7 +118,16 @@ export default async function seedDemoVendor({ container }: ExecArgs) {
   let [store] = await storeModuleService.listStores();
   if (!store) {
     const { result: storeResult } = await createStoresWorkflow(container).run({
-      input: { stores: [{ name: "Marketplace" }] },
+      input: {
+        stores: [
+          {
+            name: "Marketplace",
+            supported_currencies: [
+              { currency_code: CURRENCY_CODE, is_default: true },
+            ],
+          },
+        ],
+      },
     });
     store = storeResult[0];
   }
@@ -183,7 +192,9 @@ export default async function seedDemoVendor({ container }: ExecArgs) {
     fields: ["id"],
     filters: { type: "publishable" },
   });
-  let publishableApiKey = existingApiKeys[0];
+  // Typed narrowly (just the field we actually use) to avoid a mismatch
+  // between the query.graph() entity shape and the workflow's DTO result.
+  let publishableApiKey: { id: string } | undefined = existingApiKeys[0];
   if (!publishableApiKey) {
     const {
       result: [created],
@@ -307,11 +318,16 @@ export default async function seedDemoVendor({ container }: ExecArgs) {
     },
   });
 
-  let [shippingProfile] = await query.graph({
-    entity: "shipping_profile",
-    fields: ["id"],
-    filters: { name: "Marketplace Shipping" },
-  }).then((r) => r.data);
+  // Typed narrowly (just the field we actually use) to avoid a mismatch
+  // between the query.graph() entity shape and the workflow's DTO result.
+  const existingShippingProfiles: { id: string }[] = await query
+    .graph({
+      entity: "shipping_profile",
+      fields: ["id"],
+      filters: { name: "Marketplace Shipping" },
+    })
+    .then((r) => r.data);
+  let shippingProfile = existingShippingProfiles[0];
   if (!shippingProfile) {
     const {
       result: [created],
